@@ -1,0 +1,106 @@
+<app-header></app-header>
+<p>update works!</p>
+
+<div class="form-content">
+
+    <form (ngSubmit)= "onSubmit()">
+
+        <div class="form-head">Employee Payroll Update form</div>
+<!-- Name -->
+<div class="row-content">
+    <label class="label text" for="name">Name</label>
+    <input [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="firstName"
+        placeholder="Your name.." required [ngModelOptions]="{ standalone: true }" />
+</div>
+
+<!-- Profile -->
+<div class="row-content">
+    <label class="label text" for="profile">Profile image</label>
+    <div class="profile-radio-content">
+        <label>
+            <input [(ngModel)]= "employee.imagePath" type="radio" name="profile" id="profile1"
+                value="/Assets/profile-images/Ellipse -3.png" required />
+            <img class="profile" id="image1" src="../../../assets/profile-images/Ellipse -3.png" />
+        </label>
+        <label>
+            <input [(ngModel)]= "employee.imagePath" type="radio" name="profile" id="profile2"
+                value="/Assets/profile-images/Ellipse 1.png" required />
+            <img class="profile" id="image2" src="../../../assets/profile-images/Ellipse 1.png" />
+        </label>
+        <label>
+            <input [(ngModel)]= "employee.imagePath" type="radio" name="profile" id="profile3"
+                value="/Assets/profile-images/Ellipse -8.png" required />
+            <img class="profile" id="image3" src="../../../assets/profile-images/Ellipse -8.png" />
+        </label>
+        <label>
+            <input [(ngModel)]= "employee.imagePath" type="radio" name="profile" id="profile4"
+                value="/Assets/profile-images/Ellipse -7.png" required />
+            <img class="profile" id="image4" src="../../../assets/profile-images/Ellipse -7.png" />
+        </label>
+    </div>
+</div>
+
+<!-- Gender, Department, Salary -->
+<div class="row-content">
+    <label class="label text" for="gender">Gender</label>
+    <div>
+        <input [(ngModel)]= "employee.gender" type="radio" name="gender" id="male" value="Male" />
+        <label class="text" for="male">Male</label>
+        <input [(ngModel)]= "employee.gender" type="radio" name="gender" id="female" value="Female" />
+        <label class="text" for="female">Female</label>
+    </div>
+</div>
+
+<!-- Department -->
+
+
+
+<div class="row-content">
+    <label class="label text" for="salary">Choose your salary: </label>
+    <input [(ngModel)]= "employee.salary" class="input" type="range" name="salary" id="salary" min="300000"
+        max="500000" step="100" value="400000" required />
+</div>
+
+
+<div class="row-content">
+    <label for="startDate" class="label-text">Start Date</label>
+    <mat-form-field>
+      <input
+        [(ngModel)]= "employee.joiningDate"
+        matInput
+        [matDatepicker]= "myDatePicker"
+        [ngModelOptions]= "{ standalone: true }"
+      />
+      <mat-datepicker-toggle
+        [for]="myDatePicker"
+        matSuffix
+      ></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+
+   <!-- Notes -->
+   <div class="row-content">
+    <label class="label text" for="notes">Notes</label>
+    <textarea
+      [(ngModel)]= "employee.notes"
+      class="input"
+      name="Notes"
+      id="notes"
+      placeholder=""
+      style="height: 100px"
+    ></textarea>
+  </div>
+
+   <!-- Submit, Cancel, Reset Buttons -->
+   <div class="buttonParent">
+    <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton">Cancel</a>
+    <div class="submit-reset">
+        <button type="submit" class="button submitButton"  id="submitButton " (click)= "onSubmit()">Update</button>
+        <button type="reset" class="resetButton button" >Reset</button>
+    </div>
+</div>
+         
+    </form>
+</div>

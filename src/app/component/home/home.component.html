@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<div clas="main-content">
+    <div class="header-content">
+        <div class="emp-detail-text">
+            Employee Details
+        </div>
+    </div>
+    <div>
+        <a class="add-button" routerLink="/add">
+            <img src="../../../assets/icons/add-24px.svg" alt="Add User Logo">
+            Add User
+        </a>
+    </div>
+
+
+    <!-- <div class="form-content"> -->
+    <!-- <form class="form"> -->
+    <div class="table-main">
+        <table id="display" class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Joining Date</th>
+                    <th>Salary</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            
+                <tr *ngFor= "let employee of employees">
+                    <td>{{ employee.id }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.department }}</td>
+                    <td>{{ employee.joiningDate}}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.notes}}</td>
+                   
+                    <td>
+                       <button (click)= "onClickDelete()">
+                        <img
+                        (click)= "deleteEmployee(employee.id)"
+                          src="../../../assets/icons/delete-black-18dp.svg"
+                          alt="delete"
+                        /></button>
+                        <button (click)= "onClick()">
+                        <img 
+                        (click)= "updateEmployee(employee.id)"                          
+                          src="../../../assets/icons/create-black-18dp.svg"
+                          alt="edit"
+                        />
+                    </button>
+                      </td>
+                </tr>
+            
+        </table>
+
+    </div>
+
+</div>
